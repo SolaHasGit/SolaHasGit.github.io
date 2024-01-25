@@ -1,2 +1,2 @@
 # SolaHasGit.github.io
-First web pages CSC300X
+My GitHub Pages site
