@@ -1,0 +1,34 @@
+/*Styling sheet for pie.html*/
+h1{
+    color: #a4a400;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-family: Lucida Sans Unicode;
+}
+h2{
+    color: #a4a400;
+    background-color: #f0f0f0;
+    font-family: Lucida Sans Unicode;
+}
+
+body{
+    font-size: 11px;
+    color: #404040;
+    font-family: Georgia;
+    background-image: url(img/silverware.jpg);
+    margin: 100px;
+    
+}
+
+.comment {
+    background-color:#FFFFA8;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+    
+.link{
+    color: #FFFFA8;
+}
