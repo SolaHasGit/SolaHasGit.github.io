@@ -34,8 +34,6 @@ body {
     background-color: black;
 }
 
-
-
 header {
     height: 10%;
     background-color: navy;
@@ -49,54 +47,40 @@ h2{
 }
 
 main {
-    height: 80%;
+    height: 90%;
     border-style:ridge;
 }
 
-section {
-    height: 200px;
+.cart{
     background-color: gold;
-    margin-top: 5px;
+    height:50%;
+    border-style:groove;
+    width: 50%;
+    margin: 10px;
+    position: relative;
+    float: right;
+    margin-top: -750px;
+    border: 2px solid #333;
+    padding: 10px;
 }
 
-footer {
-    height: 8%;
-    background-color: #595959;
-}
-
-#container-box {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    height: 300px;
-    border-style: dotted;
+#total {
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 20px;
     background-color: white;
 }
 
-.multi-column {
-    width: 25%;
-    height: 80%;
-    margin: 5px;
-    text-align:center;
+#cartItems {
+    list-style-type: none;
+    padding: 0;
 }
 
-.shown {
-    margin-bottom: 2px;
-    display: block;
-}
-
-.hide {
-    margin-bottom: 2px;
-    display: none;
-}
-
-.small{
-    width: 100px;
-    height: 100px;
-}
-
-.big{
-    width: 250px;
-    height: 250px;
+#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
 

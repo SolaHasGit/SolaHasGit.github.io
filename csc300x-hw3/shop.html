@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>The meal plan </title>
-    <link rel="stylesheet" href="styles/blogstyle.css">
+    <title>Shop</title>
+    <link rel="stylesheet" href="styles/cartstyle.css">
+    <script src="script/cartscript.js" defer></script>
 </head>
 
 <body>
@@ -13,13 +14,73 @@
             <nav>
                 <div class="topnav">
                     <a href="index.html">Home</a>
-                    <a class="active" href="shop.html">Order</a>
+                    <a class="active" href="shop.html">Shop</a>
                 </div>
             </nav>
-            <h2> Main Heading</h2>
-            <p>A paragraph with some text for the header. Enim debitis dignissimos
-                distinctio tempora, ullam alias fugiat.</p>
+            <h2> The meal plan</h2>
         </header>
+
+        <main>
+            <div>
+                <h3>
+                    Yum Yum
+                </h3>
+                <p>
+                    The signature pink hotdog - $1.80
+                </p>
+                <button class="add" data-name="The signature pink hotdog" data-price="1.80">Add to order</button>
+                <p>
+                    Small Ice Cream Cone - $2.75
+                </p>
+                <button class="add" data-name="Small Ice Cream Cone" data-price="2.75">Add to order</button>
+                <p>
+                    Milkshake - $3.90
+                </p>
+                <button class="add" data-name="Milkshake" data-price="3.90">Add to order</button>
+            </div>
+
+            <div>
+                <h3>
+                    Don
+                </h3>
+                <p>
+                    Chicken Katsu Don: $12.45
+                </p>
+                <button class="add" data-name="Chicken Katsu Don" data-price="12.45">Add to order</button>
+                <p>
+                    Bibimbap: $13.45
+                </p>
+                <button class="add" data-name="Bibimbap" data-price="13.45">Add to order</button>
+                <p>
+                    Bulgogi: $13.20
+                </p>
+                <button class="add" data-name="Bulgogi" data-price="13.20">Add to order</button>
+            </div>
+
+            <div>
+                <h3>
+                    Slices by Tony
+                </h3>
+                <p>
+                    White Pizza Small 10": $13.99
+                </p>
+                <button class="add" data-name="White Pizza Small 10 inch" data-price="13.99">Add to order</button>
+                <p>
+                    Lunch Special: 2 large slices and a drink $7.99
+                </p>
+                <button class="add" data-name="Lunch Special: 2 large slices and a drink" data-price="7.99">Add to order</button>
+                <p>
+                    Margarita Pizza Small 10": $14.99
+                </p>
+                <button class="add" data-name="Margarita Pizza Small 10 inch" data-price="14.99">Add to order</button>
+            </div>
+
+            <div class="cart">
+                <h2>Cart</h2>
+                <ul id="cartItems"></ul>
+                <p id="total">Total: $0.00</p>
+            </div>
+        </main>
     </div>
 </body>
 
