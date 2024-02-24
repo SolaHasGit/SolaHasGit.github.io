@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    display: flex;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background-color: white;
+    margin: 100px;
+    flex-direction: column;
+}
+
+#player-container {
+    display: flex;
+    width: 90%;
+    height: 300px;
+    background-color: rgba(8, 158, 228, 0.677);
+    margin: 20px;
+    border-style: groove;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.player-select-container {
+    display: flex;
+    width: 30%;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    border-style: ridge;
+    border-radius: 10px;
+    border-color: rgb(249, 150, 57);
+    background-color: white;
+    margin-top: 10px;
+}
+
+#computer-container {
+    display: flex;
+    border-style: groove;
+    background-color: rgb(249, 150, 57);
+    width: 50%;
+    height: 300px;
+    margin: 20px;
+    border-style: groove;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-flow: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#result-container {
+    display: flex;
+    width: 90%;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    border-style: ridge;
+    border-radius: 10px;
+    border-color: rgb(8, 158, 228, 0.677);
+    background-color: white;
+    margin-top: 10px;
+    margin: 20px;
+    font-size: 18px;
+}
+
+#score-container {
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.selected {
+    border: 10px solid #ffcc00;
+}
