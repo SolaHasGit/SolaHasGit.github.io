@@ -1,117 +1,112 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Player and computer throw containers
-    var playerThrows = document.querySelectorAll('.player-select-container');
-    var computerThrow = document.getElementById('result-container');
+//This JS file is for controlling the functionality of the 
+//Rock-Paper-Scissors game
 
-    // Score containers
-    var winsDisplay = document.getElementById('wins');
-    var lossesDisplay = document.getElementById('losses');
-    var tiesDisplay = document.getElementById('ties');
 
-    // Reset button
-    var resetButton = document.querySelector('button');
-    resetButton.addEventListener('click', resetGame);
+//Sola
+var wins = 0;
+var losses = 0;
+var ties = 0;
 
-    // Event listeners for player throws
-    playerThrows.forEach(function (throwContainer) {
-        throwContainer.addEventListener('click', playerThrowClickHandler);
+var playerThrows = document.querySelectorAll('.player-select-container');
+var computerThrowContainer = document.getElementById('computer-select-container');
+var computerThrowText = document.querySelector('#computer-container h3');
+
+var winsDisplay = document.getElementById('wins');
+var lossesDisplay = document.getElementById('losses');
+var tiesDisplay = document.getElementById('ties');
+
+playerThrows.forEach(function (throwContainer) {
+    throwContainer.addEventListener('click', playerThrowClickHandler);
+});
+
+function playerThrowClickHandler() {
+    playerThrows.forEach(function (container) {
+        container.classList.remove('selected');
     });
 
-    // Function to handle player throw click
-    function playerThrowClickHandler() {
-        // Reset borders
-        playerThrows.forEach(function (container) {
-            container.classList.remove('selected');
-        });
+    this.classList.add('selected');
 
-        // Mark selected throw
-        this.classList.add('selected');
-
-        // Determine computer throw after a delay
+    setTimeout(function () {
+        displayRandomThrows(); 
         setTimeout(function () {
             var computerThrowResult = getComputerThrow();
             displayComputerThrow(computerThrowResult);
             determineWinner(this, computerThrowResult);
         }.bind(this), 3000);
-    }
+    }.bind(this), 500);
+}
 
-    // Function to get a random computer throw
-    function getComputerThrow() {
-        var throws = ['rock', 'paper', 'scissors'];
+
+function displayRandomThrows() {
+    var throws = ['rock', 'paper', 'scissors'];
+    var interval = setInterval(function () {
         var randomIndex = Math.floor(Math.random() * throws.length);
-        return throws[randomIndex];
+        var randomThrow = throws[randomIndex];
+        computerThrowContainer.innerHTML = '<img src="image/' + randomThrow + '.PNG" alt="' + randomThrow + '">';
+    }, 500);
+
+   
+    setTimeout(function () {
+        clearInterval(interval);
+    }, 2500);
+}
+
+function getComputerThrow() {
+    var throws = ['rock', 'paper', 'scissors'];
+    var randomIndex = Math.floor(Math.random() * throws.length);
+    return throws[randomIndex];
+}
+
+function displayComputerThrow(throwResult) {
+    computerThrowContainer.innerHTML = '<img src="image/' + throwResult + '.PNG" alt="' + throwResult + '">';
+}
+
+// Samantha 
+
+function determineWinner(playerChoice, computerChoice) {
+    var outcomeMessage = '';
+    var playerChoiceValue = playerChoice.dataset.choice;
+
+    if (playerChoiceValue === computerChoice) {
+        ties++;
+        outcomeMessage = 'It\'s a Tie!';
+    } else if (
+        (playerChoiceValue === 'rock' && computerChoice === 'scissors') ||
+        (playerChoiceValue === 'paper' && computerChoice === 'rock') ||
+        (playerChoiceValue === 'scissors' && computerChoice === 'paper')
+    ) {
+        wins++;
+        outcomeMessage = 'You Win!';
+    } else {
+        losses++;
+        outcomeMessage = 'You Lose!';
     }
 
-    // Function to display computer throw
-    function displayComputerThrow(throwResult) {
-        computerThrow.innerHTML = '<img src="image/' + throwResult + '.PNG" alt="' + throwResult + '">';
-    }
+    document.querySelector('.win-lose-container').textContent = outcomeMessage;
 
-    // Function to determine the winner and update score
-    // Function to determine the winner and update score
-    function determineWinner(playerChoice, computerChoice) {
-        var outcomeMessage = '';
+    
+    updateScoreCounts();
+}
 
-        if (playerChoice === computerChoice) {
-            ties++;
-            outcomeMessage = 'It\'s a Tie!';
-        } else if (
-            (playerChoice === 'rock' && computerChoice === 'scissors') ||
-            (playerChoice === 'paper' && computerChoice === 'rock') ||
-            (playerChoice === 'scissors' && computerChoice === 'paper')
-        ) {
-            wins++;
-            outcomeMessage = 'You Win!';
-        } else {
-            losses++;
-            outcomeMessage = 'You Lose!';
-        }
 
-        // Update outcome displays
-        outcomeContainer.textContent = outcomeMessage;
+function updateScoreCounts() {
+    winsDisplay.textContent = wins;
+    lossesDisplay.textContent = losses;
+    tiesDisplay.textContent = ties;
+}
 
-        // Update score displays
-        updateScoreCounts();
-    }
+function playAgain() {
+    playerThrows.forEach(function (container) {
+        container.classList.remove('selected');
+    });
 
-    // Function to update the outcome section
-    function updateOutcome(message) {
-        var outcomeContainer = document.getElementById('score-container');
-        outcomeContainer.innerHTML += ' ' + message + ' <button onclick="resetGame()">Play Again</button>';
-        updateScoreCounts();
-    }
+    computerThrowContainer.innerHTML = '<img class="cycle" src="image/question-mark.PNG" alt="Question Mark">';
+    computerThrowText.textContent = 'Computer Throw!';
 
-    function updateScoreCounts() {
-        winsDisplay.textContent = wins;
-        lossesDisplay.textContent = losses;
-        tiesDisplay.textContent = ties;
-    }
+    document.querySelector('.win-lose-container').textContent = 'Win or lose?';
 
-    // Function to reset the game
-    function resetGame() {
-        // Remove borders from player throws
-        playerThrows.forEach(function (container) {
-            container.classList.remove('selected');
-        });
-
-        // Reset computer throw section
-        computerThrow.innerHTML = '<img src="image/question-mark.PNG" alt="Question Mark" id="question-mark">';
-
-        // Reset outcome section
-        var outcomeContainer = document.getElementById('score-container');
-        outcomeContainer.innerHTML = 'Wins: <span id="wins">0</span> | Losses: <span id="losses">0</span> | Ties: <span id="ties">0</span> <button onclick="resetGame()">Play Again</button>';
-
-        // Reset score counters
-        winsDisplay.textContent = '0';
-        lossesDisplay.textContent = '0';
-        tiesDisplay.textContent = '0';
-
-        // Remove and reattach event listeners for player throws
-        playerThrows.forEach(function (throwContainer) {
-            var newThrowContainer = throwContainer.cloneNode(true);
-            throwContainer.parentNode.replaceChild(newThrowContainer, throwContainer);
-
-            newThrowContainer.addEventListener('click', playerThrowClickHandler);
-        });
-    }
-});
+    wins = 0;
+    losses = 0;
+    ties = 0;
+    updateScoreCounts();
+}

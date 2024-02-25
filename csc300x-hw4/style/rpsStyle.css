@@ -1,3 +1,5 @@
+/*Sola and Samantha*/
+
 body {
     display: flex;
     justify-content: center;
@@ -12,7 +14,7 @@ body {
     align-items: center;
     border-style: solid;
     background-color: white;
-    margin: 100px;
+    margin: 10px;
     flex-direction: column;
 }
 
@@ -43,31 +45,49 @@ body {
 
 #computer-container {
     display: flex;
-    border-style: groove;
     background-color: rgb(249, 150, 57);
-    width: 50%;
+    width: 40%;
     height: 300px;
     margin: 20px;
     border-style: groove;
     justify-content: space-evenly;
+    align-items: center;
     text-align: center;
     flex-flow: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#result-container {
+#computer-select-container{
     display: flex;
-    width: 90%;
-    height: 250px;
-    justify-content: center;
-    align-items: center;
+    width: 70%;
+    height: 200px;
     border-style: ridge;
+    justify-content: space-evenly;
     border-radius: 10px;
     border-color: rgb(8, 158, 228, 0.677);
     background-color: white;
     margin-top: 10px;
     margin: 20px;
     font-size: 18px;
+}
+
+#result-container {
+    display: flex;
+    width: 90%;
+    height: 250px;
+    justify-content: space-evenly;
+    align-items: center;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(8, 158, 228, 0.677);
+    background-color: white;
+    margin-top: 10px;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.win-lose-container{
+    display:block;
 }
 
 #score-container {

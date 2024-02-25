@@ -1,3 +1,9 @@
+<!--Sola and Samantha
+This HTML file shows three main sections
+One for the player
+One for the Computer
+One for the results of the matches-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,41 +14,37 @@
     <script src="script/rpsScript.js" defer></script>
 </head>
 
+
 <body>
     <div id="game-container">
         <div id="player-container">
-            <div class="player-select-container">
+            <div class="player-select-container" data-choice="rock">
                 <img src="image/rock.PNG" alt="rock">
             </div>
-            <div class="player-select-container">
+            <div class="player-select-container" data-choice="paper">
                 <img src="image/paper.PNG" alt="paper">
             </div>
-            <div class="player-select-container">
-                <img src="image/scissors.PNG">
+            <div class="player-select-container" data-choice="scissors">
+                <img src="image/scissors.PNG" alt="scissors">
             </div>
             <h3>YOUR THROW!</h3>
         </div>
         <div id="computer-container">
-            <div id="result-container">
-                <img src="image/question-mark.PNG" alt="Question Mark" id="question-mark">
+            <div id="computer-select-container">
+                <img class="cycle" src="image/question-mark.PNG" alt="question-mark">
             </div>
-            <h3>COMPUTER THROW!</h3>
+            <h3>Computer Throw!</h3>
         </div>
 
-        <section id="score-container">
-
-            <br>
-            Wins: <span id="wins">0</span> |
-            Losses: <span id="losses">0</span> |
-            Ties: <span id="ties">0</span>
-            <button onclick="resetGame()">Reset</button>
-        </section>
-
-        <section id="end-container">
+        <section id="result-container">
+            <p class="win-lose-container">Win or lose?</p>
+            <p>Wins: <span id="wins">0</span> |
+                Losses: <span id="losses">0</span> |
+                Ties: <span id="ties">0</span>
+            </p>
             <button id="playAgainBtn" onclick="playAgain()">Play Again</button>
         </section>
     </div>
 </body>
-
 
 </html>
