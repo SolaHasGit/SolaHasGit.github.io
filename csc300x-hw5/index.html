@@ -1,5 +1,6 @@
-<!--Sola and Samantha
-This HTML file shows a gallery of repositories using GitHub APIs-->
+<!--Sam. Aguilar-Martinez Part 1 HW5
+This HTML file shows a gallery of repositories using GitHub APIs
+Searching for a user will update the gallery-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,14 +9,17 @@ This HTML file shows a gallery of repositories using GitHub APIs-->
     <meta charset="utf-8">
     <title>Gallery</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script/script.js" defer></script>
+    <script src="script.js"></script>
 </head>
 
-
 <body>
-    <p>
-        repositories
-    </p>
+    <div class="container">
+        <h1>GitHub Repository Gallery</h1>
+        <input type="text" id="username-input" placeholder="Enter GitHub username">
+        <button onclick="searchRepositories()">Search</button>
+        <div id="gallery"></div>
+        <div id="error-message" style="color: red; display: none;"></div>
+    </div>
 </body>
 
 </html>
